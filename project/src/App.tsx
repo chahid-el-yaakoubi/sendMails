@@ -3,6 +3,8 @@ import { Send, Mail, Clock, CheckCircle, XCircle, Lock } from 'lucide-react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
+const UrlApi ="https://sendmails-xv8h.onrender.com/api";
+
 interface Email {
   _id: string;
   to: string[];
@@ -35,7 +37,7 @@ function App() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:3009/api/admin/login', {
+      const response = await axios.post(`${UrlApi}/admin/login`, {
         username,
         password
       });
@@ -61,7 +63,7 @@ function App() {
 
   const fetchEmailHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:3009/api/emails');
+      const response = await axios.get(`${UrlApi}/emails`);
       setHistory(response.data);
     } catch (error) {
       toast.error('Failed to fetch email history');
@@ -73,7 +75,7 @@ function App() {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:3009/api/send-email', {
+      await axios.post(`${UrlApi}/send-email`, {
         to: emails,
         subject,
         content
