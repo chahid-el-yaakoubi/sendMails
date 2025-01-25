@@ -233,7 +233,7 @@ function App() {
           {/* Email History */}
           <div className="bg-white rounded-lg shadow-md p-6 h-[80vh] overflow-y-scroll">
             <h2 className="text-xl font-semibold mb-4">Email History</h2>
-            <div className="space-y-4">
+            <div className="space-y-4 ">
               {history.map((email) => (
                 <div
                   key={email._id}
@@ -256,9 +256,10 @@ function App() {
                   <div className="text-sm text-gray-600 mb-2">
                     To: {email.to.join(', ')}
                   </div>
-                  <p className="text-sm text-gray-700 line-clamp-2">
+                  <textarea className="text-sm w-full text-gray-700 h-auto line-clamp-2">
                     {email.content}
-                  </p>
+                  </textarea>
+
                 </div>
               ))}
               {history.length === 0 && (
