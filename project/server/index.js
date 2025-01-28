@@ -88,7 +88,7 @@ const sendEmail = async (to, subject, text) => {
 
     for (const email of to) {
       await transporter.sendMail({
-        from: `"IREVIEWS" <${process.env.EMAIL_USER}>`, // Custom sender name
+        from: `"AVIS_PRO_REVIEWS" <${process.env.EMAIL_USER}>`, // Custom sender name
         to: email,
         subject,
         text,
